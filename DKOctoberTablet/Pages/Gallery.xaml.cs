@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using Windows.Data.Pdf;
 using Windows.Storage;
-using Windows.UI.Xaml.Controls;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Office.Interop.Word;
+using Frame = Windows.UI.Xaml.Controls.Frame;
+using Page = Windows.UI.Xaml.Controls.Page;
+using Task = System.Threading.Tasks.Task;
 
 namespace DKOctoberTablet.Pages
 {
@@ -28,7 +33,8 @@ namespace DKOctoberTablet.Pages
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            // await GetFiles();
+            //await GetFiles();
+			await OpenPdf();
             _mainFrame = e.Parameter as Frame;
             base.OnNavigatedTo(e);
         }
@@ -49,7 +55,50 @@ namespace DKOctoberTablet.Pages
                 }
             }
 
-            mainFlipView.ItemsSource = images;
+            //mainFlipView.ItemsSource = images;
         }
-    }
+
+	    private void ConvertToPdf()
+	    {
+		    Application appWord = new Application();
+		    var wordDocument = appWord.Documents.Open(@"D:\desktop\xxxxxx.docx");
+		    wordDocument.ExportAsFixedFormat(@"D:\desktop\DocTo.pdf", WdExportFormat.wdExportFormatPDF);
+		}
+
+	    private async Task OpenPdf()
+	    {
+		    var lib = KnownFolders.PicturesLibrary;
+		    var folder = await lib.GetFolderAsync("123");
+			var file = await folder.GetFileAsync("RemoteAccessTS.pdf");
+		    PdfDocument doc = await PdfDocument.LoadFromFileAsync(file);
+
+		    await Load(doc);
+		}
+
+	    async Task Load(PdfDocument pdfDoc)
+	    {
+		    PdfPages.Clear();
+
+		    for (uint i = 0; i < pdfDoc.PageCount; i++)
+		    {
+			    BitmapImage image = new BitmapImage();
+
+			    var page = pdfDoc.GetPage(i);
+
+			    using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
+			    {
+				    await page.RenderToStreamAsync(stream);
+				    await image.SetSourceAsync(stream);
+			    }
+
+			    PdfPages.Add(image);
+		    }
+	    }
+
+	    public ObservableCollection<BitmapImage> PdfPages
+	    {
+		    get;
+		    set;
+	    } = new ObservableCollection<BitmapImage>();
+	}
 }
