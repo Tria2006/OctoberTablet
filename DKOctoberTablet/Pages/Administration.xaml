@@ -9,8 +9,26 @@
     Background="Transparent">
 
     <Grid>
-        <Button Background="HotPink" Width="300" Height="200" CornerRadius="5" Tapped="BackTapped">
-            <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Назад" />
+        <Button Margin="1220 211 0 0" Background="#EA226A" Width="215" Height="100"  CornerRadius="25" BorderThickness="6" BorderBrush="White" Tapped="BackTapped" VerticalAlignment="Top" Click="Button_Click">
+            <TextBlock FontSize="24" FontWeight="SemiBold" Foreground="White" Text="Информация" />
+        </Button>
+        <Button Margin="924,211,0,0" Background="#EA226A" Width="215" Height="100"  CornerRadius="25" BorderThickness="6" BorderBrush="White" Tapped="BackTapped" VerticalAlignment="Top" Click="Button_Click">
+            <TextBlock FontSize="24" FontWeight="SemiBold" Foreground="White" Text="Режим" />
+        </Button>
+        <Button Margin="0,211,0,0" Background="#EA226A" Width="215" Height="100"  CornerRadius="25" BorderThickness="6" BorderBrush="White" Tapped="BackTapped" VerticalAlignment="Top" HorizontalAlignment="Center" Click="Button_Click">
+            <TextBlock FontSize="24" FontWeight="SemiBold" Foreground="White" Text="Тарифы" />
+        </Button>
+        <Button Margin="372,211,0,0" Background="#EA226A" Width="215" Height="100"  CornerRadius="25" BorderThickness="6" BorderBrush="White" Tapped="BackTapped" VerticalAlignment="Top">
+            <TextBlock FontSize="24" FontWeight="SemiBold" Foreground="White" Text="Правила" />
+        </Button>
+        <Button Margin="92,211,0,0" Background="#EA226A" Width="215" Height="100" CornerRadius="25" BorderThickness="6" BorderBrush="White" Tapped="BackTapped" VerticalAlignment="Top">
+            <TextBlock FontSize="24" FontWeight="SemiBold" Foreground="White" Text="Документы" />
+        </Button>
+        <Button Grid.Row="1" Margin="92,863,0,0" Background="#EA226A" Width="200" Height="90" CornerRadius="25" BorderThickness="6" BorderBrush="White" Tapped="BackTapped" VerticalAlignment="Top">
+            <TextBlock FontSize="24" FontWeight="SemiBold" Foreground="White" Text="Назад" />
+        </Button>
+        <Button Grid.Row="1" Margin="326,863,0,0" Background="#EA226A" Width="200" Height="90" CornerRadius="25" BorderThickness="6" BorderBrush="White" Tapped="BackTapped" VerticalAlignment="Top">
+            <TextBlock FontSize="24" FontWeight="SemiBold" Foreground="White" Text="Главная" />
         </Button>
     </Grid>
 </Page>

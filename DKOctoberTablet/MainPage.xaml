@@ -8,8 +8,7 @@
     Background="LightGray">
 
     <Grid>
-        <Image Source="Assets/img/dk_oktober.jpg"></Image>
-
+        <Image Source="Assets/img/dk_oktober.jpg" Width="auto"></Image>
         <Frame x:Name="mainFrame" Background="Transparent"/>
     </Grid>
 </Page>

@@ -25,47 +25,41 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Grid.Row="0"
-                        Background="HotPink" 
+                        Background="#EA226A" 
                         HorizontalAlignment="Stretch" 
                         VerticalAlignment="Stretch"
-                        Margin="30" CornerRadius="5"
+                        Margin="30" CornerRadius="25"
+                        Padding="100" BorderBrush="White"
+                        BorderThickness="10"
 				        Tapped="InfoButtonTapped">
                 <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Информация" />
             </Button>
-            <Button Grid.Column="1" Grid.Row="0" Background="HotPink"
+            <Button Grid.Column="1" Grid.Row="0" Background="#EA226A"
                         HorizontalAlignment="Stretch" 
                         VerticalAlignment="Stretch"
-                        Margin="30" CornerRadius="5"
+                        Margin="30" CornerRadius="25"
+                        Padding="100" BorderBrush="White"
+                        BorderThickness="10"
 			        Tapped="AdministrationButtonTapped">
                 <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Администрация" />
             </Button>
-            <Button Grid.Column="0" Grid.Row="1" Background="HotPink"
+            <Button Grid.Column="0" Grid.Row="1" Background="#EA226A"
                         HorizontalAlignment="Stretch" 
                         VerticalAlignment="Stretch"
-                        Margin="30" CornerRadius="5"
+                        Margin="30" CornerRadius="25"
+                        Padding="100" BorderBrush="White"
+                        BorderThickness="10"
 			        Tapped="ScheduleButtonTapped">
                 <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Расписание" />
             </Button>
-            <Button Grid.Column="1" Grid.Row="1" Background="HotPink"
+            <Button Grid.Column="1" Grid.Row="1" Background="#EA226A"
                         HorizontalAlignment="Stretch" 
                         VerticalAlignment="Stretch"
-                        Margin="30" CornerRadius="5"
+                        Margin="30" CornerRadius="25"
+                        Padding="100" BorderBrush="White"
+                        BorderThickness="10"
 			        Tapped="PosterButtonTapped">
                 <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Афиша" />
-            </Button>
-            <Button Grid.Column="0" Grid.Row="2" Background="HotPink"
-                        HorizontalAlignment="Stretch" 
-                        VerticalAlignment="Stretch"
-                        Margin="30" CornerRadius="5"
-			        Tapped="AuditoriumButtonTapped">
-                <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Зрительный зал" />
-            </Button>
-            <Button Grid.Column="1" Grid.Row="2" Background="HotPink"
-                        HorizontalAlignment="Stretch" 
-                        VerticalAlignment="Stretch"
-                        Margin="30" CornerRadius="5"
-			        Tapped="GalleryButtonTapped">
-                <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Галерея" />
             </Button>
         </Grid>
     </Grid>

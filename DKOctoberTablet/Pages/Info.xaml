@@ -12,8 +12,11 @@
 			<ColumnDefinition/>
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
-        <Button Grid.Column="0" Background="HotPink" Width="300" Height="200" CornerRadius="5" Tapped="BackTapped">
-            <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Назад" />
+        <Button Grid.Row="1" Margin="92,863,0,0" Background="#EA226A" Width="200" Height="90" CornerRadius="25" BorderThickness="6" BorderBrush="White" Tapped="BackTapped" VerticalAlignment="Top">
+            <TextBlock FontSize="24" FontWeight="SemiBold" Foreground="White" Text="Назад" />
+        </Button>
+        <Button Grid.Row="1" Margin="326,863,0,0" Background="#EA226A" Width="200" Height="90" CornerRadius="25" BorderThickness="6" BorderBrush="White" Tapped="BackTapped" VerticalAlignment="Top">
+            <TextBlock FontSize="24" FontWeight="SemiBold" Foreground="White" Text="Главная" />
         </Button>
 
         <!--<Button Grid.Column="1" Background="HotPink" Width="300" Height="200" windows10Version1809:CornerRadius="5" Tapped="TestTapped">

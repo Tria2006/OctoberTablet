@@ -31,5 +31,10 @@ namespace DKOctoberTablet
 		{
 			//header.Visibility = e.SourcePageType == typeof(Gallery) ? Visibility.Collapsed : Visibility.Visible;
 		}
-	}
+
+        private void MainFrame_Navigated(object sender, Windows.UI.Xaml.Navigation.NavigationEventArgs e)
+        {
+
+        }
+    }
 }

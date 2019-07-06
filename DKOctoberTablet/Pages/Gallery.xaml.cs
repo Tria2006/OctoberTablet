@@ -100,5 +100,10 @@ namespace DKOctoberTablet.Pages
 		    get;
 		    set;
 	    } = new ObservableCollection<BitmapImage>();
-	}
+
+        private void ScrollViewer_ViewChanged(object sender, Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs e)
+        {
+
+        }
+    }
 }
