@@ -4,11 +4,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="LightGray">
+    xmlns:pages="using:DKOctoberTablet.Pages"
+    mc:Ignorable="d">
 
-    <Grid>
-        <Image Source="Assets/img/dk_oktober.jpg" HorizontalAlignment="Stretch"></Image>
-        <Frame x:Name="mainFrame" Background="Transparent" />
+    <Grid HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="270"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Grid.RowSpan="2" Source="Assets/img/dk_oktober.jpg" Stretch="UniformToFill"></Image>
+        <pages:Header Grid.Row="0" Margin="40 20 40 0"></pages:Header>
+        <Frame Grid.Row="1" x:Name="mainFrame" Background="Transparent" />
     </Grid>
 </Page>

@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:pages="using:DKOctoberTablet.Pages"
     mc:Ignorable="d"
     Background="Transparent">
 
@@ -12,55 +11,53 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <pages:Header Grid.Row="0" />
-        <Grid Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Grid.Row="0"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" Grid.Row="0"
+                    Margin="30"
+                    Width="600" Height="200"
                         Background="#EA226A" 
-                        HorizontalAlignment="Stretch" 
-                        VerticalAlignment="Stretch"
-                        Margin="30" CornerRadius="25"
-                        Padding="100" BorderBrush="White"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        CornerRadius="25"
+                        Padding="50" BorderBrush="White"
                         BorderThickness="10"
 				        Tapped="InfoButtonTapped">
-                <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Информация" />
-            </Button>
-            <Button Grid.Column="1" Grid.Row="0" Background="#EA226A"
-                        HorizontalAlignment="Stretch" 
-                        VerticalAlignment="Stretch"
-                        Margin="30" CornerRadius="25"
-                        Padding="100" BorderBrush="White"
-                        BorderThickness="10"
+            <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Информация" />
+        </Button>
+        <Button Grid.Column="1" Grid.Row="0" Background="#EA226A"
+                    Width="600" Height="200"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    CornerRadius="25"
+                    Padding="50" BorderBrush="White"
+                    BorderThickness="10"
 			        Tapped="AdministrationButtonTapped">
-                <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Администрация" />
-            </Button>
-            <Button Grid.Column="0" Grid.Row="1" Background="#EA226A"
-                        HorizontalAlignment="Stretch" 
-                        VerticalAlignment="Stretch"
-                        Margin="30" CornerRadius="25"
-                        Padding="100" BorderBrush="White"
-                        BorderThickness="10"
+            <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Администрация" />
+        </Button>
+        <Button Grid.Column="0" Grid.Row="1" Background="#EA226A"
+                    Width="600" Height="200"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    CornerRadius="25"
+                    Padding="50" BorderBrush="White"
+                    BorderThickness="10"
 			        Tapped="ScheduleButtonTapped">
-                <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Расписание" />
-            </Button>
-            <Button Grid.Column="1" Grid.Row="1" Background="#EA226A"
-                        HorizontalAlignment="Stretch" 
-                        VerticalAlignment="Stretch"
-                        Margin="30" CornerRadius="25"
-                        Padding="100" BorderBrush="White"
-                        BorderThickness="10"
+            <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Расписание" />
+        </Button>
+        <Button Grid.Column="1" Grid.Row="1" Background="#EA226A"
+                    Width="600" Height="200"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    CornerRadius="25"
+                    Padding="50" BorderBrush="White"
+                    BorderThickness="10"
 			        Tapped="PosterButtonTapped">
-                <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Афиша" />
-            </Button>
-        </Grid>
+            <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Афиша" />
+        </Button>
     </Grid>
 </Page>

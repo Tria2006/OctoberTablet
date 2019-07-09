@@ -7,15 +7,26 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Margin="150 50 150 0" Height="250" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Opacity="0.6" Background="White" 
-                    HorizontalAlignment="Stretch" 
-                    VerticalAlignment="Stretch">
-        </StackPanel>
+    <Grid Height="250" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
 
+        <Image Grid.Column="0"  Source="../Assets/img/logo.png" HorizontalAlignment="Left"></Image>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Right" Margin="0 50 0 0">
+            <TextBlock TextWrapping="WrapWholeWords" TextAlignment="Right"
+                FontSize="16">
+                Муниципальное учреждение культуры городского округа
+            </TextBlock>
+            <TextBlock TextWrapping="WrapWholeWords" TextAlignment="Right"
+                       FontSize="16" Margin="0 20 0 0 ">
+                Павловский Посад
+            </TextBlock>
+            <TextBlock TextWrapping="WrapWholeWords" TextAlignment="Right"
+                       FontSize="16">
+                Московской области
+            </TextBlock>
+        </StackPanel>
     </Grid>
 </UserControl>
