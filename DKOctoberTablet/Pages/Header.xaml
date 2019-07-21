@@ -7,13 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Height="250" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="250"/>
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Column="0"  Source="../Assets/img/logo.png" HorizontalAlignment="Left"></Image>
+        <Image Grid.Column="0" Width="500" Height="auto"  Source="../Assets/img/logo.png" HorizontalAlignment="Left"></Image>
         <StackPanel Grid.Column="1" HorizontalAlignment="Right" Margin="0 50 0 0">
             <TextBlock TextWrapping="WrapWholeWords" TextAlignment="Right"
                 FontSize="16">
