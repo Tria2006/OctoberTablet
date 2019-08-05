@@ -26,7 +26,7 @@
                         CornerRadius="25"
                         Padding="50" BorderBrush="White"
                         BorderThickness="10"
-				        Tapped="InfoButtonTapped">
+				        Tapped="AdministrationButtonTapped">
             <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Администрация" />
         </Button>
         <Button Grid.Column="1" Grid.Row="0" Background="#EA226A"
@@ -36,7 +36,7 @@
                     CornerRadius="25"
                     Padding="50" BorderBrush="White"
                     BorderThickness="10"
-			        Tapped="AdministrationButtonTapped">
+			        Tapped="InfoButtonTapped">
             <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Информация" />
         </Button>
         <Button Grid.Column="0" Grid.Row="1" Background="#EA226A"

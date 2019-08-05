@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using Windows.Data.Pdf;
 using Windows.Storage;
-using Windows.Storage.Streams;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-using Microsoft.Office.Interop.Word;
+using DKOctoberTablet.Helpers;
+using DKOctoberTablet.Models;
 using Frame = Windows.UI.Xaml.Controls.Frame;
 using Page = Windows.UI.Xaml.Controls.Page;
 using Task = System.Threading.Tasks.Task;
@@ -18,12 +17,15 @@ namespace DKOctoberTablet.Pages
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class Gallery : Page
-    {
-        private Frame _mainFrame;
+	{
+		private Frame _mainFrame;
+		private FilesHelper _helper;
+		public List<DirectoryData> Directories { get; set; } = new List<DirectoryData>();
 
         public Gallery()
         {
             InitializeComponent();
+			_helper = new FilesHelper();
         }
 
         private void BackTapped(object sender, TappedRoutedEventArgs e)
@@ -33,73 +35,26 @@ namespace DKOctoberTablet.Pages
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            //await GetFiles();
-			await OpenPdf();
+	        Directories = await _helper.GetDirectoryData(KnownFolders.PicturesLibrary, "Gallery");
+            // await GetFiles();
+			// await OpenPdf();
             _mainFrame = e.Parameter as Frame;
             base.OnNavigatedTo(e);
         }
 
-        private async Task GetFiles()
-        {
-            var localFolder = KnownFolders.PicturesLibrary;
-            var folder = await localFolder.GetFolderAsync("123");
-            var files = await folder.GetFilesAsync();
-            var images = new List<BitmapImage>();
-            foreach (var file in files)
-            {
-                using (var randomAccessStream = await file.OpenAsync(FileAccessMode.Read))
-                {
-                    var result = new BitmapImage();
-                    await result.SetSourceAsync(randomAccessStream);
-                    images.Add(result);
-                }
-            }
+	 //   private async Task OpenPdf()
+	 //   {
+		//	var directoryData = await new FilesHelper().GetFiles(KnownFolders.PicturesLibrary, "Gallery");
 
-            //mainFlipView.ItemsSource = images;
-        }
+		//    foreach (var item in directoryData)
+		//    {
+			    
+		//    }
+		//	var file = await folder.GetFileAsync("RemoteAccessTS.pdf");
+		//    PdfDocument doc = await PdfDocument.LoadFromFileAsync(file);
 
-	    private void ConvertToPdf()
-	    {
-		    Application appWord = new Application();
-		    var wordDocument = appWord.Documents.Open(@"D:\desktop\xxxxxx.docx");
-		    wordDocument.ExportAsFixedFormat(@"D:\desktop\DocTo.pdf", WdExportFormat.wdExportFormatPDF);
-		}
-
-	    private async Task OpenPdf()
-	    {
-		    var lib = KnownFolders.PicturesLibrary;
-		    var folder = await lib.GetFolderAsync("123");
-			var file = await folder.GetFileAsync("RemoteAccessTS.pdf");
-		    PdfDocument doc = await PdfDocument.LoadFromFileAsync(file);
-
-		    await Load(doc);
-		}
-
-	    async Task Load(PdfDocument pdfDoc)
-	    {
-		    PdfPages.Clear();
-
-		    for (uint i = 0; i < pdfDoc.PageCount; i++)
-		    {
-			    BitmapImage image = new BitmapImage();
-
-			    var page = pdfDoc.GetPage(i);
-
-			    using (InMemoryRandomAccessStream stream = new InMemoryRandomAccessStream())
-			    {
-				    await page.RenderToStreamAsync(stream);
-				    await image.SetSourceAsync(stream);
-			    }
-
-			    PdfPages.Add(image);
-		    }
-	    }
-
-	    public ObservableCollection<BitmapImage> PdfPages
-	    {
-		    get;
-		    set;
-	    } = new ObservableCollection<BitmapImage>();
+		//    await Load(doc);
+		//}
 
         private void ScrollViewer_ViewChanged(object sender, Windows.UI.Xaml.Controls.ScrollViewerViewChangedEventArgs e)
         {

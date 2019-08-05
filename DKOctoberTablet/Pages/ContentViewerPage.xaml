@@ -5,18 +5,45 @@
     xmlns:windows10Version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:DKOctoberTablet.Models"
     mc:Ignorable="d"
     Background="Transparent">
 
     <Grid>
 		<Grid.RowDefinitions>
-			<RowDefinition/>
-			<RowDefinition/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
-	    <Button Grid.Row="0" Background="HotPink" Width="300" Height="200" windows10Version1809:CornerRadius="5" Tapped="BackTapped">
+	    <Button Grid.Row="0" Background="HotPink" Width="300" Height="100" windows10Version1809:CornerRadius="5" Tapped="BackTapped">
 		    <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Назад" />
 	    </Button>
-		
-		<TextBlock Grid.Row="1" Text="{x:Bind data}" FontSize="50" FontWeight="SemiBold" FontStyle="Italic" Foreground="Azure"></TextBlock>
+
+        <ScrollViewer Grid.Row="1">
+            <ItemsControl ItemsSource="{x:Bind data, Mode=OneWay}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="models:DirectoryData">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{x:Bind DirectoryName}" />
+                            <ItemsControl Grid.Row="1" ItemsSource="{x:Bind Files}">
+                                <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="BitmapImage">
+                                    <Image Source="{x:Bind}" Width="600" Height="500" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemContainerStyle>
+                                <Style TargetType="ContentPresenter">
+                                    <Setter Property="Margin" Value="5" />
+                                </Style>
+                            </ItemsControl.ItemContainerStyle>
+                        </ItemsControl>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
 	</Grid>
 </Page>

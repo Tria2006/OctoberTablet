@@ -119,7 +119,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FilesHelper.cs" />
+    <Compile Include="Helpers\PdfHelper.cs" />
+    <Compile Include="Models\ContentPageNavData.cs" />
     <Compile Include="Models\ContentPageNavParameter.cs" />
+    <Compile Include="Models\DirectoryData.cs" />
     <Compile Include="Pages\Administration.xaml.cs">
       <DependentUpon>Administration.xaml</DependentUpon>
     </Compile>
@@ -143,6 +147,9 @@
     </Compile>
     <Compile Include="Pages\MainPageButtons.xaml.cs">
       <DependentUpon>MainPageButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Footer.xaml.cs">
+      <DependentUpon>Footer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Poster.xaml.cs">
       <DependentUpon>Poster.xaml</DependentUpon>
@@ -204,6 +211,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\MainPageButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Footer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

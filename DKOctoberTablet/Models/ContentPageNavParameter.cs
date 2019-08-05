@@ -6,9 +6,9 @@ namespace DKOctoberTablet.Models
     {
         public Frame MainFrame { get; set; }
 
-        public object Parameter { get; set; }
+        public ContentPageNavData Parameter { get; set; }
 
-        public ContentPageNavParameter(Frame mainFrame, object parameter)
+        public ContentPageNavParameter(Frame mainFrame, ContentPageNavData parameter)
         {
             MainFrame = mainFrame;
             Parameter = parameter;
