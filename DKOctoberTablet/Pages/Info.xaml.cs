@@ -28,7 +28,7 @@ namespace DKOctoberTablet.Pages
 	    private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
 	    {
 		    if (!(sender is Button btn)) return;
-			if (string.IsNullOrEmpty(btn.Tag.ToString())) return;
+			if (string.IsNullOrEmpty(btn.Tag?.ToString())) return;
 
 		    _mainFrame.Navigate(typeof(ContentViewerPage), new ContentPageNavParameter
 		    (

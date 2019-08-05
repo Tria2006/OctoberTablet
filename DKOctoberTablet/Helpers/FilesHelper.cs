@@ -15,7 +15,8 @@ namespace DKOctoberTablet.Helpers
 		{
 			var result = new List<DirectoryData>();
 			var pdfHelper = new PdfHelper();
-			var rootFolder = await localFolder.GetFolderAsync(rootFolderName);
+
+			if (!(await localFolder.TryGetItemAsync(rootFolderName) is StorageFolder rootFolder)) return result;
 			var dirs = await rootFolder.GetFoldersAsync();
 
 			foreach (var dir in dirs)
