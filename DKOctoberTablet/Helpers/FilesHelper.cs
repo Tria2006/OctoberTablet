@@ -55,12 +55,12 @@ namespace DKOctoberTablet.Helpers
 								dirData.Files.AddRange(await pdfHelper.LoadPdf(doc));
 								break;
 							case ".doc":
-							case ".docx":
-								await pdfHelper.ConvertToPdf(file.Path, dir);
-								var pdf = await GetStorageFileByName($"{file.Name}.pdf", dir);
-								var pdfDoc = await PdfDocument.LoadFromFileAsync(pdf);
-								dirData.Files.AddRange(await pdfHelper.LoadPdf(pdfDoc));
-								break;
+							//case ".docx":
+							//	await pdfHelper.ConvertToPdf(file.Path, dir);
+							//	var pdf = await GetStorageFileByName($"{file.Name}.pdf", dir);
+							//	var pdfDoc = await PdfDocument.LoadFromFileAsync(pdf);
+							//	dirData.Files.AddRange(await pdfHelper.LoadPdf(pdfDoc));
+							break;
 						}
 					}
 					result.Add(dirData);
