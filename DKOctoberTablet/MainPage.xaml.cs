@@ -21,7 +21,7 @@ namespace DKOctoberTablet
 			CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
 			coreTitleBar.ExtendViewIntoTitleBar = true;
 			mainFrame.Navigate(typeof(MainPageButtons), mainFrame);
-			mainFrame.Navigating += MainFrame_Navigating;
+			//mainFrame.Navigating += MainFrame_Navigating;
 			SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += this.OnCloseRequest;
 			coreTitleBar.LayoutMetricsChanged += CoreTitleBar_LayoutMetricsChanged;
 		}

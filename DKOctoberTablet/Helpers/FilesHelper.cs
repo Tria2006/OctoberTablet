@@ -35,7 +35,7 @@ namespace DKOctoberTablet.Helpers
 						var props = await file.GetBasicPropertiesAsync();
 						if (props.Size == 0) return result;
 
-						switch (file.FileType.ToLower(CultureInfo.CurrentCulture))
+						switch (file.FileType.ToLower())
 						{
 							case ".jpg":
 							case ".jpeg":

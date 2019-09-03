@@ -4,7 +4,7 @@
          xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" 
          xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
          IgnorableNamespaces="uap mp rescap">
-  <Identity Name="aabbcf1a-7623-4b15-82e6-c61ef1a3a2c4" Publisher="CN=AAA" Version="1.0.0.0" />
+  <Identity Name="aabbcf1a-7623-4b15-82e6-c61ef1a3a2c4" Publisher="CN=AAA" Version="1.0.2.0" />
   <mp:PhoneIdentity PhoneProductId="aabbcf1a-7623-4b15-82e6-c61ef1a3a2c4" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>DKOctoberTablet</DisplayName>
