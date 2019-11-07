@@ -5,9 +5,9 @@
     xmlns:local="using:DKOctoberTablet.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -19,7 +19,10 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="0" Grid.Row="0"
+        <controls:DropShadowPanel BlurRadius="40.0" ShadowOpacity="0.3" Grid.Column="0" Grid.Row="0"
+                                  OffsetX="40.0" OffsetY="30.0" Color="Black" HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center">
+            <Button 
                     Margin="30"
                     MinWidth="800" Height="300"
                         Background="#EA226A" 
@@ -29,9 +32,13 @@
                         Padding="50" BorderBrush="White"
                         BorderThickness="10"
 				        Tapped="AdministrationButtonTapped">
-            <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Администрация" />
-        </Button>
-        <Button Grid.Column="1" Grid.Row="0" Background="#EA226A"
+                <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Администрация" />
+            </Button>
+        </controls:DropShadowPanel>
+        <controls:DropShadowPanel BlurRadius="40.0" ShadowOpacity="0.3" Grid.Column="1" Grid.Row="0" 
+                                  OffsetX="10.0" OffsetY="10.0" Color="Black" HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center">
+            <Button Background="#EA226A"
                     MinWidth="800" Height="300"
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center"
@@ -39,9 +46,13 @@
                     Padding="50" BorderBrush="White"
                     BorderThickness="10"
 			        Tapped="InfoButtonTapped">
-            <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Информация" />
-        </Button>
-        <Button Grid.Column="0" Grid.Row="1" Background="#EA226A"
+                <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Информация" />
+            </Button>
+        </controls:DropShadowPanel>
+        <controls:DropShadowPanel BlurRadius="40.0" ShadowOpacity="0.3" Grid.Column="0" Grid.Row="1"
+                                  OffsetX="10.0" OffsetY="10.0" Color="Black" HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center">
+            <Button Background="#EA226A"
                     MinWidth="800" Height="300"
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center"
@@ -49,9 +60,13 @@
                     Padding="50" BorderBrush="White"
                     BorderThickness="10"
 			        Tapped="ScheduleButtonTapped">
-            <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Расписание" />
-        </Button>
-        <Button Grid.Column="1" Grid.Row="1" Background="#EA226A"
+                <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Расписание" />
+            </Button>
+        </controls:DropShadowPanel>
+        <controls:DropShadowPanel BlurRadius="40.0" ShadowOpacity="0.3" Grid.Column="1" Grid.Row="1"
+                                  OffsetX="10.0" OffsetY="10.0" Color="Black" HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center">
+            <Button Background="#EA226A"
                     MinWidth="800" Height="300"
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center"
@@ -59,7 +74,8 @@
                     Padding="50" BorderBrush="White"
                     BorderThickness="10"
 			        Tapped="PosterButtonTapped">
-            <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Афиша" />
-        </Button>
+                <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Афиша" />
+            </Button>
+        </controls:DropShadowPanel>
     </Grid>
 </Page>

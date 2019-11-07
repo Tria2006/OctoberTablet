@@ -1,18 +1,14 @@
-﻿using System;
+﻿using DKOctoberTablet.Helpers;
+using DKOctoberTablet.Models;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-using DKOctoberTablet.Helpers;
-using DKOctoberTablet.Models;
 
 namespace DKOctoberTablet.Pages
 {
-    public sealed partial class ContentViewerPage
+	public sealed partial class ContentViewerPage
     {
         private Frame _mainFrame;
 

@@ -1,7 +1,6 @@
 ﻿using DKOctoberTablet.Models;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Threading.Tasks;
 using Windows.Data.Pdf;
 using Windows.Storage;
@@ -16,7 +15,10 @@ namespace DKOctoberTablet.Helpers
 			var result = new List<DirectoryData>();
 			var pdfHelper = new PdfHelper();
 
-			if (!(await localFolder.TryGetItemAsync(rootFolderName) is StorageFolder rootFolder)) return result;
+			if (!(await localFolder.TryGetItemAsync("Terminal") is StorageFolder terminalFolder)) return result;
+
+
+			if (!(await terminalFolder.TryGetItemAsync(rootFolderName) is StorageFolder rootFolder)) return result;
 			var dirs = await rootFolder.GetFoldersAsync();
 
 			foreach (var dir in dirs)

@@ -84,9 +84,9 @@ namespace DKOctoberTablet
         /// <param name="e">Details about the suspend request.</param>
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
-            var deferral = e.SuspendingOperation.GetDeferral();
-            //TODO: Save application state and stop any background activity
-            deferral.Complete();
+            //var deferral = e.SuspendingOperation.GetDeferral();
+            ////TODO: Save application state and stop any background activity
+            //deferral.Complete();
         }
     }
 }

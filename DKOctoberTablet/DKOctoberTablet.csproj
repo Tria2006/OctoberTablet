@@ -11,7 +11,7 @@
     <AssemblyName>DKOctoberTablet</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17763.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -136,14 +136,21 @@
     <Compile Include="Models\ContentPageNavData.cs" />
     <Compile Include="Models\ContentPageNavParameter.cs" />
     <Compile Include="Models\DirectoryData.cs" />
+    <Compile Include="Models\PersonDataModel.cs" />
     <Compile Include="Pages\Administration.xaml.cs">
       <DependentUpon>Administration.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Auditorium.xaml.cs">
       <DependentUpon>Auditorium.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CoDirectors.xaml.cs">
+      <DependentUpon>CoDirectors.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ContentViewerPage.xaml.cs">
       <DependentUpon>ContentViewerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Director.xaml.cs">
+      <DependentUpon>Director.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Gallery.xaml.cs">
       <DependentUpon>Gallery.xaml</DependentUpon>
@@ -170,6 +177,9 @@
       <DependentUpon>Schedule.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\PersonData.xaml.cs">
+      <DependentUpon>PersonData.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -202,7 +212,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\CoDirectors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ContentViewerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Director.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -238,10 +256,20 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\PersonData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.8</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp">
+      <Version>5.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>5.1.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />
