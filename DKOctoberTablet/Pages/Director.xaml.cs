@@ -1,5 +1,7 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using DKOctoberTablet.Helpers;
 using DKOctoberTablet.Models;
 
 namespace DKOctoberTablet.Pages
@@ -7,24 +9,23 @@ namespace DKOctoberTablet.Pages
 	public sealed partial class Director
 	{
 		private Frame _mainFrame;
-		public PersonDataModel directorData;
+		public PersonDataModel directorData { get; set; }
 
 		public Director()
 		{
 			InitializeComponent();
-			directorData = new PersonDataModel
-			{
-				Name = "Агеева Марина Анатольевна",
-				Position = "Директор",
-				WorkHours = "Ежедневно 9:00 - 18:00",
-				Email = "123@mail.ru"
-			};
+			Task.Run(FillData).Wait();
 		}
 
 		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
 			_mainFrame = e.Parameter as Frame;
 			base.OnNavigatedTo(e);
+		}
+
+		private async Task FillData()
+		{
+			directorData = await new FilesHelper().GetDirectorData();
 		}
 	}
 }

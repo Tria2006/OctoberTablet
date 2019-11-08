@@ -5,12 +5,45 @@
     xmlns:local="using:DKOctoberTablet.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:DKOctoberTablet.Models"
     mc:Ignorable="d"
     Background="Transparent">
 
-    <Grid>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../ResourceDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
-        <local:Footer Margin="45 15 0 15" Width="500" HorizontalAlignment="Left"
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <GridView Grid.Row="0" Margin="30" ItemsSource="{x:Bind buttons, Mode=OneWay}">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="models:ButtonData">
+                    <Button Background="#EA226A" Width="400" Height="200" Template="{StaticResource btTemplate}" BorderThickness="6" 
+                            BorderBrush="White" VerticalAlignment="Top" Click="Button_Click" Tag="{x:Bind Tag}" >
+                        <TextBlock FontSize="30" FontWeight="SemiBold" Foreground="White" Text="{x:Bind Text}" HorizontalAlignment="Stretch" TextAlignment="Center" TextWrapping="Wrap"/>
+                    </Button>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsWrapGrid Orientation="Horizontal" HorizontalAlignment="Stretch" />
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+            <GridView.ItemContainerStyle>
+                <Style TargetType="GridViewItem">
+                    <Setter Property="Margin" Value="10"/>
+                </Style>
+            </GridView.ItemContainerStyle>
+        </GridView>
+        <local:Footer Grid.Row="1" Margin="45 15 0 15" Width="500" HorizontalAlignment="Left"
                       MainFrame="{x:Bind _mainFrame, Mode=OneWay}"></local:Footer>
     </Grid>
 </Page>
+

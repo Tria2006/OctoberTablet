@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Windows.Data.Pdf;
 using Windows.Storage;
 using Windows.UI.Xaml.Media.Imaging;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace DKOctoberTablet.Helpers
 {
@@ -74,9 +76,49 @@ namespace DKOctoberTablet.Helpers
 			return result;
 		}
 
-		private async Task<IStorageFile> GetStorageFileByName(string name, StorageFolder folder)
+		internal async Task<PersonDataModel> GetDirectorData()
 		{
-			return await folder.GetFileAsync(name);
+			var result = new PersonDataModel();
+			var folder = KnownFolders.PicturesLibrary;
+			if (!(await folder.TryGetItemAsync("Terminal") is StorageFolder terminalFolder)) return result;
+
+			var dirFile = await terminalFolder.GetFileAsync("director.json");
+
+			if (dirFile == null) return result;
+
+			var json = await FileIO.ReadTextAsync(dirFile);
+
+			return JsonConvert.DeserializeObject<PersonDataModel>(json);
+		}
+
+		internal async Task<CoDirectors> GetCoDirectorsData()
+		{
+			var result = new CoDirectors();
+			var folder = KnownFolders.PicturesLibrary;
+			if (!(await folder.TryGetItemAsync("Terminal") is StorageFolder terminalFolder)) return result;
+
+			var dirFile = await terminalFolder.GetFileAsync("codirectors.json");
+
+			if (dirFile == null) return result;
+
+			var json = await FileIO.ReadTextAsync(dirFile);
+
+			return JsonConvert.DeserializeObject<CoDirectors>(json);
+		}
+
+		internal async Task<ButtonsList> GetButtons(string fileName)
+		{
+			var result = new ButtonsList();
+			var folder = KnownFolders.PicturesLibrary;
+			if (!(await folder.TryGetItemAsync("Terminal") is StorageFolder terminalFolder)) return result;
+
+			var dirFile = await terminalFolder.GetFileAsync(fileName);
+
+			if (dirFile == null) return result;
+
+			var json = await FileIO.ReadTextAsync(dirFile);
+
+			return JsonConvert.DeserializeObject<ButtonsList>(json);
 		}
 	}
 }

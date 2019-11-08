@@ -133,6 +133,9 @@
     </Compile>
     <Compile Include="Helpers\FilesHelper.cs" />
     <Compile Include="Helpers\PdfHelper.cs" />
+    <Compile Include="Models\ButtonData.cs" />
+    <Compile Include="Models\ButtonsList.cs" />
+    <Compile Include="Models\CoDirectors.cs" />
     <Compile Include="Models\ContentPageNavData.cs" />
     <Compile Include="Models\ContentPageNavParameter.cs" />
     <Compile Include="Models\DirectoryData.cs" />
@@ -256,6 +259,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\PersonData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -270,6 +277,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
       <Version>5.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />

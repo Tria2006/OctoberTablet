@@ -14,7 +14,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <userControls:PersonData Margin="85 0 85 0" Data="{x:Bind directorData, Mode=OneTime}"></userControls:PersonData>
+        <userControls:PersonData Margin="85 0 85 0" Data="{x:Bind directorData, Mode=OneWay}"></userControls:PersonData>
 
         <local:Footer Grid.Row="1" Margin="85 20 0 20" Width="500" HorizontalAlignment="Left"
                       MainFrame="{x:Bind _mainFrame, Mode=OneWay}"></local:Footer>

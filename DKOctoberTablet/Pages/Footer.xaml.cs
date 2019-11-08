@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using System.Linq;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 
@@ -24,5 +25,16 @@ namespace DKOctoberTablet.Pages
         {
 	        MainFrame.GoBack();
         }
+
+	    private void ToMainPageTapped(object sender, TappedRoutedEventArgs e)
+	    {
+		    var main = MainFrame.BackStack.FirstOrDefault();
+			if( main == null)
+				MainFrame.GoBack();
+			else
+			{
+				MainFrame.Navigate(main.SourcePageType, main.Parameter);
+			}
+	    }
     }
 }
