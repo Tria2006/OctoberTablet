@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.UI.Xaml.Controls;
@@ -11,25 +12,30 @@ namespace DKOctoberTablet.Pages
     public sealed partial class Schedule
     {
         private Frame _mainFrame;
+	    private readonly FilesHelper _filesHelper;
 		public List<ButtonData> buttons = new List<ButtonData>();
+		private List<ScheduleItem> fullSchedule = new List<ScheduleItem>();
 
         public Schedule()
         {
             InitializeComponent();
+	        _filesHelper = new FilesHelper();
 	        Task.Run(GetButtons).Wait();
 		}
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             _mainFrame = e.Parameter as Frame;
-            base.OnNavigatedTo(e);
+	        fullSchedule = await _filesHelper.GetFullSchedule();
+			base.OnNavigatedTo(e);
         }
 
 	    private async Task GetButtons()
 	    {
-		    var result = await new FilesHelper().GetButtons("scheduleButtons.json");
+		    var result = await _filesHelper.GetButtons("scheduleButtons.json");
 		    buttons = result.Buttons;
 	    }
+
 	    /// <summary>
 	    /// Переход на страницу отображения содержимого папки
 	    /// </summary>
@@ -40,7 +46,7 @@ namespace DKOctoberTablet.Pages
 		    if (!(sender is Button btn)) return;
 		    if (string.IsNullOrEmpty(btn.Tag?.ToString())) return;
 
-		    _mainFrame.Navigate(typeof(ContentViewerPage), new ContentPageNavParameter
+		    _mainFrame.Navigate(typeof(ScheduleDetailPage), new ContentPageNavParameter
 		    (
 			    _mainFrame,
 			    new ContentPageNavData
@@ -51,7 +57,8 @@ namespace DKOctoberTablet.Pages
 				    // например, для документов создана папка Docs в PicturesLibrary(это дефолтная папка винды "Изображения" или "Pictures")
 				    // и после перехода на ContentViewerPage выполнится поиск документов по этой папке(включая подпапки)
 				    // результаты поиска собираются в List<DirectoryData>, и его отображает ContentViewerPage
-				    RootFolderName = btn.Tag.ToString()
+				    RootFolderName = btn.Tag.ToString(),
+					OptionalParameter = fullSchedule.FirstOrDefault(x => x.Id == btn.Tag.ToString())
 			    }
 		    ));
 	    }

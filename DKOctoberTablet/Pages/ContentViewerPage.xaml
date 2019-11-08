@@ -10,14 +10,12 @@
     Background="Transparent">
 
     <Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto"/>
-			<RowDefinition Height="*"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
-        <pages:Footer Grid.Row="0" Margin="45 15 0 15" Width="500" HorizontalAlignment="Left"
-                      MainFrame="{x:Bind _mainFrame, Mode=OneWay}"></pages:Footer>
 
-        <ScrollViewer Grid.Row="1">
+        <ScrollViewer Grid.Row="0">
             <ItemsControl ItemsSource="{x:Bind data, Mode=OneWay}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate x:DataType="models:DirectoryData">
@@ -26,11 +24,11 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock Text="{x:Bind DirectoryName}" />
+                            <TextBlock Text="{x:Bind DirectoryName}" FontSize="22" FontWeight="SemiBold" HorizontalAlignment="Center" />
                             <ItemsControl Grid.Row="1" ItemsSource="{x:Bind Files}">
                                 <ItemsControl.ItemTemplate>
                                 <DataTemplate x:DataType="BitmapImage">
-                                    <Image Source="{x:Bind}" Width="600" Height="500" />
+                                    <Image Source="{x:Bind}" Width="1300" Height="800" />
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                             <ItemsControl.ItemContainerStyle>
@@ -44,5 +42,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
+        <pages:Footer Grid.Row="1" Margin="45 15 0 15" Width="500" HorizontalAlignment="Left"
+                      MainFrame="{x:Bind _mainFrame, Mode=OneWay}"></pages:Footer>
 	</Grid>
 </Page>

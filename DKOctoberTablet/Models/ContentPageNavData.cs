@@ -7,5 +7,7 @@ namespace DKOctoberTablet.Models
 		public string RootFolderName { get; set; }
 
 		public StorageFolder Folder { get; set; }
+
+		public object OptionalParameter { get; set; }
 	}
 }

@@ -138,8 +138,10 @@
     <Compile Include="Models\CoDirectors.cs" />
     <Compile Include="Models\ContentPageNavData.cs" />
     <Compile Include="Models\ContentPageNavParameter.cs" />
+    <Compile Include="Models\DayScheduleItem.cs" />
     <Compile Include="Models\DirectoryData.cs" />
     <Compile Include="Models\PersonDataModel.cs" />
+    <Compile Include="Models\ScheduleItem.cs" />
     <Compile Include="Pages\Administration.xaml.cs">
       <DependentUpon>Administration.xaml</DependentUpon>
     </Compile>
@@ -178,6 +180,9 @@
     </Compile>
     <Compile Include="Pages\Schedule.xaml.cs">
       <DependentUpon>Schedule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ScheduleDetailPage.xaml.cs">
+      <DependentUpon>ScheduleDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControls\PersonData.xaml.cs">
@@ -256,6 +261,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Schedule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ScheduleDetailPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

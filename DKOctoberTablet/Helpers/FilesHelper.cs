@@ -120,5 +120,25 @@ namespace DKOctoberTablet.Helpers
 
 			return JsonConvert.DeserializeObject<ButtonsList>(json);
 		}
+
+		internal async Task<List<ScheduleItem>> GetFullSchedule()
+		{
+			var result = new List<ScheduleItem>();
+			var folder = KnownFolders.PicturesLibrary;
+			if (!(await folder.TryGetItemAsync("Terminal") is StorageFolder terminalFolder)) return result;
+
+			var dirFile = await terminalFolder.GetFileAsync("schedule.json");
+
+			if (dirFile == null) return result;
+
+			var json = await FileIO.ReadTextAsync(dirFile);
+
+			var obj = JsonConvert.DeserializeObject<JObject>(json);
+
+			if (!obj.TryGetValue("items", out var items))
+				return result;
+
+			return JsonConvert.DeserializeObject<List<ScheduleItem>>(items.ToString());
+		}
 	}
 }

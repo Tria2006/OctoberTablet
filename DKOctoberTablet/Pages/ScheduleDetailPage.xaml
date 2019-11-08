@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="DKOctoberTablet.Pages.ScheduleDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DKOctoberTablet.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:DKOctoberTablet.Models"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    Background="Transparent">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <controls:DropShadowPanel BlurRadius="40.0" ShadowOpacity="0.2" HorizontalAlignment="Center"
+                                  OffsetX="1.0" OffsetY="20.0" Color="Black">
+            <Grid Background="White" Padding="30" Width="1800">
+                <Grid Grid.Row="0" Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="{x:Bind data.Name}" 
+                               FontSize="48" FontWeight="SemiBold" 
+                               MaxLines="3" TextWrapping="WrapWholeWords"
+                               HorizontalAlignment="Center"></TextBlock>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="Руководитель:" FontSize="40" FontWeight="SemiBold" Margin="0 0 10 0"></TextBlock>
+                        <TextBlock Text="{x:Bind data.Leader}" FontSize="40" FontWeight="SemiBold"></TextBlock>
+                    </StackPanel>
+                    <ScrollViewer Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <ItemsControl ItemsSource="{x:Bind data.Days}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="models:DayScheduleItem">
+                                    <StackPanel Margin="0 10 0 10" BorderThickness="1" BorderBrush="Black" CornerRadius="5" Padding="10" MinWidth="1000">
+                                        <TextBlock Text="{x:Bind DayName}" FontSize="26" FontWeight="SemiBold" HorizontalAlignment="Center"></TextBlock>
+                                        <TextBlock Text="{x:Bind Time}" FontSize="20" HorizontalAlignment="Center"></TextBlock>
+                                        <TextBlock Text="{x:Bind Location}" FontSize="20" HorizontalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+            </Grid>
+        </controls:DropShadowPanel>
+
+        <local:Footer Grid.Row="1" Margin="45 15 0 15" Width="500" HorizontalAlignment="Left"
+                      MainFrame="{x:Bind _mainFrame, Mode=OneWay}"></local:Footer>
+    </Grid>
+</Page>
+
