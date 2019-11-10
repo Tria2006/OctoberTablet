@@ -18,7 +18,7 @@
 
         <controls:DropShadowPanel BlurRadius="40.0" ShadowOpacity="0.2" HorizontalAlignment="Center"
                                   OffsetX="1.0" OffsetY="20.0" Color="Black">
-            <Grid Background="White" Padding="30" Width="1800">
+            <Grid Background="White" Padding="30" Width="1800" CornerRadius="20">
                 <Grid Grid.Row="0" Background="White">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -34,7 +34,7 @@
                         <TextBlock Text="Руководитель:" FontSize="40" FontWeight="SemiBold" Margin="0 0 10 0"></TextBlock>
                         <TextBlock Text="{x:Bind data.Leader}" FontSize="40" FontWeight="SemiBold"></TextBlock>
                     </StackPanel>
-                    <ScrollViewer Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ScrollViewer Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto" Padding="10 0 10 0">
                         <ItemsControl ItemsSource="{x:Bind data.Days}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate x:DataType="models:DayScheduleItem">
