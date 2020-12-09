@@ -38,7 +38,7 @@
                         Padding="50" BorderBrush="White"
                         BorderThickness="10"
 				        Tapped="AdministrationButtonTapped">
-                <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Администрация" />
+                <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Администрация           Дома культуры" TextWrapping="Wrap" TextAlignment="Center" />
             </Button>
         </controls:DropShadowPanel>
         <controls:DropShadowPanel BlurRadius="40.0" ShadowOpacity="0.3" Grid.Column="1" Grid.Row="0" 
@@ -79,6 +79,7 @@
                     Template="{StaticResource btTemplate}"
                     Padding="50" BorderBrush="White"
                     BorderThickness="10"
+                    Tag="Poster"
 			        Tapped="PosterButtonTapped">
                 <TextBlock FontSize="60" FontWeight="SemiBold" Foreground="White" Text="Афиша" />
             </Button>

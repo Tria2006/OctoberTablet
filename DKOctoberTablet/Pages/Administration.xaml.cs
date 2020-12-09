@@ -28,5 +28,10 @@ namespace DKOctoberTablet.Pages
 		{
 			_mainFrame?.Navigate(typeof(CoDirectors), _mainFrame);
 		}
-    }
+
+		private void SectorsTapped(object sender, TappedRoutedEventArgs e)
+		{
+			_mainFrame?.Navigate(typeof(SectorsEmployees), _mainFrame);
+		}
+	}
 }

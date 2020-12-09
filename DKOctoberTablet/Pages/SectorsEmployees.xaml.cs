@@ -1,18 +1,18 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using DKOctoberTablet.Helpers;
 using DKOctoberTablet.Models;
-using Windows.Storage;
 
 namespace DKOctoberTablet.Pages
 {
-	public sealed partial class Director
+	public sealed partial class SectorsEmployees : Page
 	{
 		private Frame _mainFrame;
-		public PersonDataModel directorData { get; set; }
+		private List<PersonDataModel> PersonList = new List<PersonDataModel>();
 
-		public Director()
+		public SectorsEmployees()
 		{
 			InitializeComponent();
 			Task.Run(FillData).Wait();
@@ -26,7 +26,8 @@ namespace DKOctoberTablet.Pages
 
 		private async Task FillData()
 		{
-			directorData = await new FilesHelper().GetDirectorData();
+			var data = await new FilesHelper().GetSectorsEmployeesData();
+			PersonList = data.Persons;
 		}
 	}
 }

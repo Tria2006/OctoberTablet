@@ -106,6 +106,36 @@ namespace DKOctoberTablet.Helpers
 			return JsonConvert.DeserializeObject<CoDirectors>(json);
 		}
 
+		internal async Task<CoDirectors> GetAdmPpData()
+		{
+			var result = new CoDirectors();
+			var folder = KnownFolders.PicturesLibrary;
+			if (!(await folder.TryGetItemAsync("Terminal") is StorageFolder terminalFolder)) return result;
+
+			var dirFile = await terminalFolder.GetFileAsync("adm_pp.json");
+
+			if (dirFile == null) return result;
+
+			var json = await FileIO.ReadTextAsync(dirFile);
+
+			return JsonConvert.DeserializeObject<CoDirectors>(json);
+		}
+
+		internal async Task<SectorsEmployees> GetSectorsEmployeesData()
+		{
+			var result = new SectorsEmployees();
+			var folder = KnownFolders.PicturesLibrary;
+			if (!(await folder.TryGetItemAsync("Terminal") is StorageFolder terminalFolder)) return result;
+
+			var dirFile = await terminalFolder.GetFileAsync("sectors.json");
+
+			if (dirFile == null) return result;
+
+			var json = await FileIO.ReadTextAsync(dirFile);
+
+			return JsonConvert.DeserializeObject<SectorsEmployees>(json);
+		}
+
 		internal async Task<ButtonsList> GetButtons(string fileName)
 		{
 			var result = new ButtonsList();

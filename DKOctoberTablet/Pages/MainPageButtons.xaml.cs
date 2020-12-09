@@ -1,10 +1,12 @@
-﻿using System;
+﻿using DKOctoberTablet.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -51,7 +53,23 @@ namespace DKOctoberTablet.Pages
 
         private void PosterButtonTapped(object sender, TappedRoutedEventArgs e)
         {
-            _mainFrame?.Navigate(typeof(Poster), _mainFrame);
+            if (!(sender is Button btn)) return;
+            if (string.IsNullOrEmpty(btn.Tag?.ToString())) return;
+
+            _mainFrame.Navigate(typeof(ContentViewerPage), new ContentPageNavParameter
+            (
+                _mainFrame,
+                new ContentPageNavData
+                {
+                    Folder = KnownFolders.PicturesLibrary,
+                    // этот параметр выбирается на основе тэга Tag у Button'ов
+                    // он указывает название корневой папки, т.е. откуда нужно начинать поиск
+                    // например, для документов создана папка Docs в PicturesLibrary(это дефолтная папка винды "Изображения" или "Pictures")
+                    // и после перехода на ContentViewerPage выполнится поиск документов по этой папке(включая подпапки)
+                    // результаты поиска собираются в List<DirectoryData>, и его отображает ContentViewerPage
+                    RootFolderName = btn.Tag.ToString()
+                }
+            ));
         }
 
         private void AuditoriumButtonTapped(object sender, TappedRoutedEventArgs e)

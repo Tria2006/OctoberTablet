@@ -11,24 +11,31 @@
         <controls:DropShadowPanel BlurRadius="40.0" ShadowOpacity="0.2"
                                   OffsetX="1.0" OffsetY="20.0" Color="Black">
         <Grid Background="White" Padding="30" Width="1800">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="500"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{x:Bind Data.Position}" FontSize="72" FontWeight="SemiBold"></TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{x:Bind Data.Name}" FontSize="56"></TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="График работы:" FontSize="24"></TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Bind Data.WorkHours}" FontSize="24"></TextBlock>
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Email:" FontSize="24"></TextBlock>
-                <TextBlock Grid.Row="3" Grid.Column="1" Text="{x:Bind Data.Email}" FontSize="24"></TextBlock>
-            </Grid>
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{x:Bind Data.Position}" FontSize="50" FontWeight="SemiBold"></TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{x:Bind Data.Name}" FontSize="56"></TextBlock>
+           
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="График работы:" FontSize="24" ></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Bind Data.WorkHours}" FontSize="24"></TextBlock>
+            
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Email:" FontSize="24"></TextBlock>
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="{x:Bind Data.Email}" FontSize="24"></TextBlock>
+            
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Телефон:" FontSize="24"></TextBlock>
+            <TextBlock Grid.Row="4" Grid.Column="1" Text="{x:Bind Data.Phone}" FontSize="24"></TextBlock>
+        </Grid>
         </controls:DropShadowPanel>
     
 </UserControl>

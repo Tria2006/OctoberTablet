@@ -45,5 +45,20 @@ namespace DKOctoberTablet.Pages
 				}
 		    ));
 	    }
+
+		private void WorkHours_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+		{
+			_mainFrame?.Navigate(typeof(WorkHours), _mainFrame);
+		}
+
+		private void NetworkLinks_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+		{
+			_mainFrame?.Navigate(typeof(NetworkLinks), _mainFrame);
+		}
+
+		private void AdmPp_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+		{
+			_mainFrame?.Navigate(typeof(AdmPp), _mainFrame);
+		}
 	}
 }
