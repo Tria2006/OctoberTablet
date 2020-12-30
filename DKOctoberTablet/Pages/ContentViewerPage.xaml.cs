@@ -33,7 +33,11 @@ namespace DKOctoberTablet.Pages
             if (e.Parameter is ContentPageNavParameter args)
             {
                 _mainFrame = args.MainFrame;
+                progress.IsActive = true;
+                ringText.Text = "Пожалуйста подождите...";
 	            data = await _filesHelper.GetDirectoryData(args.Parameter.Folder, args.Parameter.RootFolderName);
+                ringText.Text = string.Empty;
+                progress.IsActive = false;
             }
 
             base.OnNavigatedTo(e);

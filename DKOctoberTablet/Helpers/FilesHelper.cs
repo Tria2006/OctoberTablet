@@ -7,6 +7,7 @@ using Windows.Storage;
 using Windows.UI.Xaml.Media.Imaging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace DKOctoberTablet.Helpers
 {
@@ -17,11 +18,8 @@ namespace DKOctoberTablet.Helpers
 			var result = new List<DirectoryData>();
 			var pdfHelper = new PdfHelper();
 
-			if (!(await localFolder.TryGetItemAsync("Terminal") is StorageFolder terminalFolder)) return result;
-
-
-			if (!(await terminalFolder.TryGetItemAsync(rootFolderName) is StorageFolder rootFolder)) return result;
-			var dirs = await rootFolder.GetFoldersAsync();
+			var dirs = await GetFolders(localFolder, rootFolderName);
+			if (dirs == null) return result;
 
 			foreach (var dir in dirs)
 			{
@@ -74,6 +72,40 @@ namespace DKOctoberTablet.Helpers
 				}
 			}
 			return result;
+		}
+
+		private async Task<IReadOnlyList<StorageFolder>> GetFolders(StorageFolder localFolder, string root)
+		{
+			if (!(await localFolder.TryGetItemAsync("Terminal") is StorageFolder terminalFolder)) return null;
+			if (!(await terminalFolder.TryGetItemAsync(root) is StorageFolder rootFolder)) return null;
+			return await rootFolder.GetFoldersAsync();
+		}
+
+		internal async Task<BitmapImage> GetPhoto(StorageFolder localFolder, string rootFolderName, string fileName)
+		{
+			var dirs = await GetFolders(localFolder, rootFolderName);
+			if (dirs == null) return null;
+
+			foreach (var dir in dirs)
+			{
+				var files = await dir.GetFilesAsync();
+				if (files == null || files.Count == 0) continue;
+
+				var photoFile = files.FirstOrDefault(x => x.Name == fileName);
+				if (photoFile == null) continue;
+
+				using (var randomAccessStream = await photoFile.OpenAsync(FileAccessMode.Read))
+				{
+					var img = new BitmapImage();
+					if (randomAccessStream.CanRead)
+					{
+						await img.SetSourceAsync(randomAccessStream);
+						return img;
+					}
+				}
+			}
+
+			return null;
 		}
 
 		internal async Task<PersonDataModel> GetDirectorData()
